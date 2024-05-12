@@ -18,66 +18,66 @@
 ## Part1. Установка ОС
 
 Вывод версии Ubuntu командой `cat /etc/issue`.
-![Version of the Linux](images/version.png)
+![Version of the Linux](src/images/version.png)
 
 ## Part 2. Создание пользователя
 
 Создаем нового пользователя командой `useradd`.
 >Используя флаг -G добалвяем пользователя в группу adm, а с помощью флага -p задаем пароль.
 
-![Creating a user](images/creation_a_user.png)
+![Creating a user](src/images/creation_a_user.png)
 
 Вывод всех пользоватетей командой `cat /etc/passwd`.
 
-![Creating a user](images/output_all_users.png)
+![Creating a user](src/images/output_all_users.png)
 
 ## Part 3. Настройка сети ОС
 
 - Задаëм название машины user-1, используя команду `hostnamectl set-hostname user-1`.
 
-![Setting a name](images/change_name.png)
+![Setting a name](src/images/change_name.png)
 
 -  Устанавливаем локальную временную зону.
 > Команда `timedatectl set-timezone` позволяет установить временную зону из списка всех существующих временных зон. Посмотреть все временные зоны можно командой `timedatectl list`.
 
-![Setting the local time zone](images/timezone.png)
+![Setting the local time zone](src/images/timezone.png)
 
 - Вывод названий сетевых интерфейсов с помощью команды `ip addr`.
 
-![Ip_addr](images/ip_addr.png)
+![Ip_addr](src/images/ip_addr.png)
 
 >Localhost (lo) - pарезервированное доменное имя для частных IP-адресов (в диапазоне 127.0.0.1 — 127.255.255.254). Для сети, состоящей только из одного компьютера, как правило, используется всего один адрес — 127.0.0.1, который устанавливается на специальный сетевой интерфейс «внутренней петли» (англ. loopback) в сетевом протоколе TCP/IP. Использование адреса 127.0.0.1 позволяет устанавливать соединение и передавать информацию для программ-серверов, работающих на том же компьютере, что и программа-клиент.
 
 - Используя консольную команду `dhclient -v enp0s3` получаем ip-адрес устройства от DHCP сервера.
 
-![dhclient](images/change_ip_from_dhcp.png)
+![dhclient](src/images/change_ip_from_dhcp.png)
 >DHCP (Dynamic Host Configuration Protocol) - протокол прикладного уровня модели TCP/IP, служит для назначения IP-адреса клиенту.
 
 - Вывод внутреннего ip-адреса шлюза командой `ip route`.
 
-![Internal_ip_address](images/inter_ip.png)
+![Internal_ip_address](src/images/inter_ip.png)
 
 - Вывод внешнего ip-адреса шлюза командой `curl 'ifconfig.me'`.
 
-![External_ip](images/external_ip.png)
+![External_ip](src/images/external_ip.png)
 
 - Задаем статичные настройки ip, gw, dns редактируя файл `/etc.netplan/00-installer-config.yaml`. 
 
-![netplan](images/static_ip.png)
+![netplan](src/images/static_ip.png)
 
 - Пропингуем хост 1.1.1.1.
 
-![ping_1111](images/ping_1111.png)
+![ping_1111](src/images/ping_1111.png)
 
 - Пропингуем хост ya.ru.
 
-![ping_ya_ru](images/ping_ya_ru.png)
+![ping_ya_ru](src/images/ping_ya_ru.png)
 
 ## Part 4. Обновление ОС
 
 Обновляем системные пакеты командой `sudo apt-get upgrade`
 
-![OS_update](images/OS_update.png)
+![OS_update](src/images/OS_update.png)
 
 ## Part 5. Использование команды **sudo**
 
@@ -85,13 +85,13 @@
 
 Заходим по именем созданного ранее пользователя с помощью команды `su lavondas` и меняем hostname с помощью комманды `sudo hostnamectl set-hostname lol`.
 
-![new_hostname](images/new_hostname.png)
+![new_hostname](src/images/new_hostname.png)
 
 ## Part 6 Установка и настройка службы времени
 
 Время успешно настроено.
 
-![NTP](images/NTP_synch.png)
+![NTP](src/images/NTP_synch.png)
 
 ## Part 7. Установка и использование текстовых редакторов 
 
@@ -99,64 +99,64 @@
 
 ### Vim
 
-![vim_1](images/Vim1.png)
+![vim_1](src/images/Vim1.png)
 
 >Чтобы создать файл и открыть вводим команду `vim test_vim.txt`. Чтобы начать ввод текста, нажимаем на клавишу I. Входим в командный режим клавишой esc, вводим сочетание :wq чтобы сохранить и выйти из редактора.
 
 ### Nano
 
-![nano_1](images/nano1.png)
+![nano_1](src/images/nano1.png)
 
 >Чтобы создать файл и открыть вводим команду `vim test_nano.txt`. Чтобы сохранить файл используем сочетание ctrl+o, а чтобы выйти ctrl+x и нажимаем Enter.
 
 ### Mcedit
 
-![mcedit_1](images/mcedit1.png)
+![mcedit_1](src/images/mcedit1.png)
 
 >Чтобы создать файл и открыть вводим команду `vim test_mcedit.txt`. Для сохранения файла можно воспользоваться клавишей F2. Для выхода из редактора используем клавишу F10.
 
 ### Vim
-![vim_2](images/Vim2.png)
+![vim_2](src/images/Vim2.png)
 
 >Для того чтобы выйти без сохранений в командной строке пишем ':q!'.
 
 ### Nano
 
-![nano_2](images/nano2.png)
+![nano_2](src/images/nano2.png)
 
 >Для того чтобы выйти без сохранений просто выходим при помощи ctrl+X и отказываемся сохранить изменения.
 
 ### Mcedit
 
-![mcedit_2](images/mcedit2.png)
+![mcedit_2](src/images/mcedit2.png)
 
 >Можно выйти при помощи F10. При выходе отказаться от изменений.
 
 ### Vim
-![vim_3](images/Vim3.png)
-![vim_4](images/Vim4.png)
+![vim_3](src/images/Vim3.png)
+![vim_4](src/images/Vim4.png)
 
 >Для поиска и замены пишем :s/искомое_слово/заменяющее_слово. Искомое слово подсвечивается.
 
-![vim_5](images/Vim5.png)
+![vim_5](src/images/Vim5.png)
 
 ### Nano
 
-![nano_3](images/nano3.png)
-![nano_4](images/nano4.png)
+![nano_3](src/images/nano3.png)
+![nano_4](src/images/nano4.png)
 
 >Для поиска и замены используем хоткей ctrl+\ ищем нужное слово/строку, затем выбираем на что сменить.
 
-![nano_5](images/nano5.png)
+![nano_5](src/images/nano5.png)
 
 ### Mcedit
 
-![mcedit_3](images/mcedit3.png)
-![mcedit_4](images/mcedit4.png)
+![mcedit_3](src/images/mcedit3.png)
+![mcedit_4](src/images/mcedit4.png)
 
 >При помощи F4 можно найти слово и ввести ему замену.
 
-![mcedit_5](images/mcedit5.png)
+![mcedit_5](src/images/mcedit5.png)
  
  ## Part 8. Установка и базовая настройка сервиса **SSHD**
 
@@ -165,13 +165,13 @@
 Используем `sudo systemctl enable ssh` для того чтобы установить службу на автоматическую загрузку при включении.  
 
 Чтобы перенастроить службу SSHd на порт 2022 для этого нам нужно отредактировать файл `/etc/ssh/sshd_config`  
-![port_change](images/Port_2022.png)
+![port_change](src/images/Port_2022.png)
 
 Используем команду `ps -FC sshd`. Флаг -С позволяет фильтровать процессы по имени, -F выводит более подробное описание.
-![ps](images/ps_sshd.png)
+![ps](src/images/ps_sshd.png)
 
 Используем команду netstat -tan
-![netstat](images/netstat.png)  
+![netstat](src/images/netstat.png)  
 
 Флаг *-a* выводит список всех портов (как TCP, так и UDP).  
 
@@ -199,7 +199,7 @@
 
 ### top
 
-![output_top](images/top1.png)
+![output_top](src/images/top1.png)
 
 - uptime: 55 мин
 - количество авторизованных пользователей: 1
@@ -210,32 +210,32 @@
 - pid процесса занимающего больше всего памяти: 4657
 - pid процесса, занимающего больше всего процессорного времени: 96814
 
-![top2](images/top2.png)
+![top2](src/images/top2.png)
 
 ### htop
 - Отсортированному по PID
 
-![htop](images/htop_pid.png)
+![htop](src/images/htop_pid.png)
 
 - Отсортированному по PERCENT_CPU
 
-![htop](images/htop_cpu.png)
+![htop](src/images/htop_cpu.png)
 
 - Отсортированному по PERCENT_MEM
 
-![htop](images/htop_mem.png)
+![htop](src/images/htop_mem.png)
 
 - Отсортированному по TIME
 
-![htop](images/htop_time.png)
+![htop](src/images/htop_time.png)
 
 - Отфильтрованому по sshd
 
-![htop](images/htop_sshd.png)
+![htop](src/images/htop_sshd.png)
 
 - С процессом syslog, найденным, используя поиск и с добавленным выводом hostname, clock и uptime
 
-![htop](images/htop_sys.png)
+![htop](src/images/htop_sys.png)
 
 ## Part 10. Использование утилиты **fdisk**
 
@@ -246,7 +246,7 @@
 
 ## Part 11. Использование утилиты **df** 
 
-![df](images/df1.png)
+![df](src/images/df1.png)
 
 Запускаем команду df для корневого раздела /
 
@@ -255,7 +255,7 @@
 - Размер свободного пространства - 9377192K
 - Процент использования - 40% 
 
-![df](images/df2.png)
+![df](src/images/df2.png)
 
 Запускаем команду df -Th для корневого раздела /
 
@@ -271,55 +271,55 @@
 
 - Размер папок /home
 
-![du](images/du_home.png)
+![du](src/images/du_home.png)
 
 - Размер папок в /var, 
 
-![du](images/du_var.png)
+![du](src/images/du_var.png)
 
 - Размер папок в /var/log 
 
-![du](images/du_varlog.png)
+![du](src/images/du_varlog.png)
 
 - Размер всего содержимого в /var/log/*
 
-![du](images/du_varlog2.png)
+![du](src/images/du_varlog2.png)
 
 ## Part 13. Установка и использование утилиты **ncdu**
 
 Устанавливаем утилиту ncdu с помощью `sudo apt install ncdu`
 - Размер папки /home
 
-![nsdu](images/ncdu_home.png)
+![nsdu](src/images/ncdu_home.png)
 
 - Размер папки /var
 
-![nsdu](images/ncdu_var.png)
+![nsdu](src/images/ncdu_var.png)
 
 - Размер папки /var/log 
 
-![nsdu](images/ncdu_log.png)
+![nsdu](src/images/ncdu_log.png)
 
 ## Part 14. Работа с системными журналами
 
 Время последней успешной авторизации
 
-![session](images/last_session.png)
+![session](src/images/last_session.png)
 
 В /var/log/auth.log можно увидеть перезагрузку sshd после команды `sudo systemctl restart sshd.service`
 
-![session](images/restart_sshd.png)
+![session](src/images/restart_sshd.png)
 
 ## Part 15. Использование планировщика заданий **CRON**
 
 При помощи команды `crontab -e` вносим в запускаем команду uptime через каждые 2 минуты. Выводим на экран список текущих заданий при помощи команды `crontab -l`.
 
-![cron](images/cron2.png)
+![cron](src/images/cron2.png)
 
 Видим список задач и то что они исполняются каждые 2 минуты.
 
-![cron](images/cron1.png)
+![cron](src/images/cron1.png)
 
 Удаляем все задания из планировщика заданий командой `crontab -r`, проверяем.
 
-![cron](images/cron3.png)
+![cron](src/images/cron3.png)
